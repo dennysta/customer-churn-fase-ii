@@ -20,7 +20,8 @@ with st.form("formulario_cliente"):
     st.subheader("Información del cliente")
 
     gender = st.selectbox("Género", ["Female", "Male"])
-    senior = st.selectbox("¿Es adulto mayor?", ["YES", "NO"])
+    senior_respuesta = st.selectbox("¿Es adulto mayor?", ["No", "Yes"])
+    senior = 1 if senior_respuesta == "Yes" else 0
     partner = st.selectbox("¿Tiene pareja?", ["Yes", "No"])
     dependents = st.selectbox("¿Tiene dependientes?", ["Yes", "No"])
 
