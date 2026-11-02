@@ -1,0 +1,20 @@
+services:
+  api:
+    build: .
+    container_name: churn-api
+    ports:
+      - "8000:8000"
+
+  frontend:
+    image: python:3.11-slim
+    container_name: churn-frontend
+    working_dir: /app
+    volumes:
+      - .:/app
+    command: >
+      sh -c "pip install --no-cache-dir -r requirements-frontend.txt &&
+             streamlit run frontend.py --server.address 0.0.0.0"
+    ports:
+      - "8501:8501"
+    depends_on:
+      - api
