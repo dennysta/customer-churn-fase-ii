@@ -1,7 +1,7 @@
 import streamlit as st
 import requests
 
-API_URL = "http://api:8000/predict"
+API_URL = "https://customer-churn-fase-ii.onrender.com/predict"
 
 st.set_page_config(
     page_title="Customer Churn",
@@ -20,7 +20,7 @@ with st.form("formulario_cliente"):
     st.subheader("Información del cliente")
 
     gender = st.selectbox("Género", ["Female", "Male"])
-    senior = st.selectbox("¿Es adulto mayor?", [0, 1])
+    senior = st.selectbox("¿Es adulto mayor?", ["YES", "NO"])
     partner = st.selectbox("¿Tiene pareja?", ["Yes", "No"])
     dependents = st.selectbox("¿Tiene dependientes?", ["Yes", "No"])
 
